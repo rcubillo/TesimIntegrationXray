@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<testsuites>
-  <testsuite name="selenium run" tests="1" failure="1" timestamp="2021-11-05T13:59:55.350Z" skipped="0" failure-evaluating="0">
-    <testcase name="Test_Create&amp;Download_Deposit summary report - 1 / 1 Data set" classname="testim.io.test" time="36.284" ownedBy="Ronald" ownerEmail="rcubillo@fortresstech.net">
-      <failure message="Step Failed: Element not found More info at: https://app.testim.io/#/project/rMDuwZcHfy1l6jUu7cXo/branch/master/test/4So4099xDBdk8Kpz?result-id=BBkTmQGGEgY4Os0y"/>
-      <system-out>https://app.testim.io/#/project/rMDuwZcHfy1l6jUu7cXo/branch/master/test/4So4099xDBdk8Kpz?result-id=BBkTmQGGEgY4Os0y</system-out>
-    </testcase>
-  </testsuite>
-</testsuites>
