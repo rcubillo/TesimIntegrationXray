@@ -2,7 +2,8 @@
   "version": "1.0.0",
   "description": "Testim integration with Xrays",
   "scripts": {
-    "CI test": "testim--token "3H6KvG710VRtis8e0j4nbH0Lc5MJIZzhCYsSjm2DOEENb7uNYk" --project "rMDuwZcHfy1l6jUu7cXo"  --grid "Testim-Grid" - l "Sanity Check" - r ~/report.xml"
+    "test": "testim --token "3H6KvG710VRtis8e0j4nbH0Lc5MJIZzhCYsSjm2DOEENb7uNYk" --project "rMDuwZcHfy1l6jUu7cXo"  --grid "Testim-Grid" - l "Sanity Check" - r ~/report.xml",
+    "ci": "testim --token "3H6KvG710VRtis8e0j4nbH0Lc5MJIZzhCYsSjm2DOEENb7uNYk" --project "rMDuwZcHfy1l6jUu7cXo"  --grid "Testim-Grid" - l "Sanity Check" - r ~/report.xml"
   },
   "dependencies": {
     "dotenv": "^10.0.0"
