@@ -27,5 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 #     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm i -g @testim/testim-cli && testim --token "3H6KvG710VRtis8e0j4nbH0Lc5MJIZzhCYsSjm2DOEENb7uNYk" --project "rMDuwZcHfy1l6jUu7cXo" --grid "Testim-Grid" || true
+#     - run: npm run build --if-present
+    - run: npm i -g @testim/testim-cli && testim --token "3H6KvG710VRtis8e0j4nbH0Lc5MJIZzhCYsSjm2DOEENb7uNYk" --project "rMDuwZcHfy1l6jUu7cXo" --grid "Testim-Grid" - r ~/report.xml || true
