@@ -1,0 +1,51 @@
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log
+
+# Dependencies
+node_modules/
+yarn.lock/
+yarn-error.log
+
+# Coverage
+coverage/
+
+# Transpiled files
+dist/
+zip/
+
+# VS Code
+.vscode
+jsconfig.json
+
+# JetBrains
+.idea/*
+
+# Misc
+.DS_Store
+tmp/
+
+# Sublime Text
+*.sublime-*
+
+# Orig files
+*.orig
+
+# Environment
+.env
+.env.production
+
+jest_0/
+
+# DB
+db/backups/*
+db/schema/**/*[sql,gz,env]
+!db/schema/**/*[sample]
+utils/update-local-image.sh
+
+# Personal Developer Notes Y'all Should Use (VS Notes Extension)
+.notes/
+
+# Folder for .sql files to run locally
+.sql_tools

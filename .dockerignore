@@ -1,0 +1,37 @@
+# Node
+node_modules
+npm-debug.log
+
+# Git
+.git
+.gitattributes
+.gitignore
+
+# Documentaion
+*.md
+src/**/*.md
+
+# Docker
+Dockerfile*
+dockerfile*
+docker-compose.yml
+.dockerignore
+
+# SQL
+db
+
+# CI
+codefresh*
+.codefresh*
+utils/**
+
+# Development
+db/**
+.editorconfig
+.env
+.env.sample
+.travis.yml
+.buildkite
+.ebextensions
+.vscode
+
