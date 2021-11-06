@@ -41,21 +41,21 @@ jobs:
         continueOnImportError: true
         projectKey: “XRAYD”
         
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: surefire-reports
-        path: mymeeave/target/surefire-reports/**
+#     - name: Upload artifact
+#       uses: actions/upload-artifact@v1
+#       with:
+#         name: surefire-reports
+#         path: mymeeave/target/surefire-reports/**
         
         
 
-    - uses: actions/checkout@v2
+#     - uses: actions/checkout@v2
 
-    - uses: actions/download-artifact@v2
-      with:
-        name: my-artifact
-        path: ~/TesimIntegrationXray
+#     - uses: actions/download-artifact@v2
+#       with:
+#         name: my-artifact
+#         path: ~/TesimIntegrationXray
     
-    - name: Display structure of downloaded files
-      run: ls -R
-      working-directory: ~/TesimIntegrationXray
+#     - name: Display structure of downloaded files
+#       run: ls -R
+#       working-directory: ~/TesimIntegrationXray
