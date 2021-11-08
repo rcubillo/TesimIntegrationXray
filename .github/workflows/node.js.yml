@@ -35,7 +35,7 @@ jobs:
         username: ${{ secrets.client_id }}
         password: ${{ secrets.client_secret }}
         testFormat: “junit”
-        testPaths: “~/junit.xml”
+        testPaths: "/home/runner/*.xml"
        # testExecKey: “XRAYD-14”
         testPlanKey: “XRAYD-189"
         continueOnImportError: true
