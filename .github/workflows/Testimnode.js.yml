@@ -33,4 +33,4 @@ jobs:
     - uses: instinctstudios/testim-cli-gh-action@v0.3.0
       with:
        token: ${{ secrets.TESTIM_TOKEN }}
-       project-id: <PROJECT_ID>
+       project-id: ${{ secrets.PROJECT }}
