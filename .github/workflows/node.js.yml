@@ -37,6 +37,6 @@ jobs:
         testFormat: "junit"
         testPaths: "~/junit.xml"
        # testExecKey: “XRAYD-14”
-        testPlanKey: "XRAYD-138"
+        testPlanKey: "XRAYD-196"
         continueOnImportError: false
         projectKey: "XRAYD"
