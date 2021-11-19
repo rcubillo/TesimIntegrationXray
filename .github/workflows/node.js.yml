@@ -47,4 +47,4 @@ jobs:
 #         testExecKey: “XRAY-14”
         testPlanKey: "PTB-852" 
         continueOnImportError: false
-        projectKey: "XRAY"
+        projectKey: "PTB"
