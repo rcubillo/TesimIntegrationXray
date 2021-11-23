@@ -27,7 +27,7 @@ jobs:
 #     - run: npm ci
 #     - run: npm i -g @testim/testim-cli
 #     - run: npm i -g @testim/testim-cli && testim --label "Full Regression"  --token ${{ secrets.token}} --project ${{secrets.grid}}  --grid "Testim-Grid" --reporters junit -r ~/junit.xml || true
-    - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --suite ${{secrets.suiteName}} || true
+    - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --suite "Regression Suite" || true
     - uses: mikepenz/xray-action@v0.9.4
       with:
         username: ${{ secrets.client_id }}
