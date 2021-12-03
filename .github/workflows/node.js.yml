@@ -36,13 +36,13 @@ jobs:
         testPlanKey: "XRAY-62" 
         continueOnImportError: false
         projectKey: "XRAY"
-#     - uses: mikepenz/xray-action@v0.9.4
-#       with:
-#         username: ${{ secrets.client_id }}
-#         password: ${{ secrets.client_secret }}
-#         testFormat: "junit"
-#         testPaths: "~/junit.xml"
-# #         testExecKey: “XRAY-14”
-#         testPlanKey: "PTB-852" 
-#         continueOnImportError: false
-#         projectKey: "PTB"
+    - uses: mikepenz/xray-action@v0.9.4
+      with:
+        username: ${{ secrets.client_id }}
+        password: ${{ secrets.client_secret }}
+        testFormat: "junit"
+        testPaths: "~/junit.xml"
+#         testExecKey: “XRAY-14”
+        testPlanKey: "PTB-829" 
+        continueOnImportError: false
+        projectKey: "PTB"
