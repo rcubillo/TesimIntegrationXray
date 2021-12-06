@@ -1,3 +1,5 @@
+Testim/ Xray Integration
+
 What is Testim
 Testim is an automated testing platform for fast authoring of AI-powered stable tests and tools to help you scale quality.
 
