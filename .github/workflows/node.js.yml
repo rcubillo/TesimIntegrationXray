@@ -33,6 +33,12 @@ jobs:
         testPlanKey: "XRAY-62" 
         continueOnImportError: false
         projectKey: "XRAY"
+#         Using this to avoid this action to run twice
+    - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      if: "github.ref != 'refs/heads/master'"  
+    - uses: actions/checkout@v2.0.0
 #     - uses: mikepenz/xray-action@v0.9.4
 #       with:
 #         username: ${{ secrets.client_id }}
