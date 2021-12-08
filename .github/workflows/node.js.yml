@@ -4,8 +4,7 @@ name: Node.js CI
 
 on:
   push:
-    branches:
-        - main
+    branches: [ trunk ]
   schedule:
    - cron: '0 6 * * *'
 jobs:
@@ -23,6 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --suite ${{secrets.suite_name}} || true
+#     Affordable Board
     - uses: mikepenz/xray-action@v0.9.4
       with:
         username: ${{ secrets.client_id }}
@@ -30,22 +30,30 @@ jobs:
         testFormat: "junit"
         testPaths: "~/junit.xml"
 #         testExecKey: “XRAY-14”
-        testPlanKey: "XRAY-62" 
+        testPlanKey: "AH-215" 
         continueOnImportError: false
-        projectKey: "XRAY"
+        projectKey: "AH"
+#     Financials Board
+    - uses: mikepenz/xray-action@v0.9.4
+      with:
+        username: ${{ secrets.client_id }}
+        password: ${{ secrets.client_secret }}
+        testFormat: "junit"
+        testPaths: "~/junit.xml"
+#         testExecKey: “XRAY-14”
+        testPlanKey: "FIN-174" 
+        continueOnImportError: false
+        projectKey: "FIN"
 #         Using this to avoid this action to run twice
-    - uses: rokroskar/workflow-run-cleanup-action@v0.2.2
-      env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      if: "github.ref != 'refs/heads/master'"  
-    - uses: actions/checkout@v2.0.0
-#     - uses: mikepenz/xray-action@v0.9.4
-#       with:
-#         username: ${{ secrets.client_id }}
-#         password: ${{ secrets.client_secret }}
-#         testFormat: "junit"
-#         testPaths: "~/junit.xml"
-# #         testExecKey: “XRAY-14”
-#         testPlanKey: "PTB-829" 
-#         continueOnImportError: false
-#         projectKey: "PTB"
+#     Platform Board
+    - uses: mikepenz/xray-action@v0.9.4
+      with:
+        username: ${{ secrets.client_id }}
+        password: ${{ secrets.client_secret }}
+        testFormat: "junit"
+        testPaths: "~/junit.xml"
+#         testExecKey: “XRAY-14”
+        testPlanKey: "PTB-829" 
+        continueOnImportError: false
+        projectKey: "PTB"
+
