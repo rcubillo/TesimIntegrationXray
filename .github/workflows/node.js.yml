@@ -3,10 +3,10 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ trunk ]
-  schedule:
-   - cron: '0 6 * * *'
+#   push:
+#     branches: [ trunk ]
+#   schedule:
+#    - cron: '0 6 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
