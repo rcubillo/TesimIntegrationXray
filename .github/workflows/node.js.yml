@@ -3,8 +3,8 @@
 name: Node.js CI
 
 on:
-#   push:
-#     branches: [ trunk ]
+  push:
+    branches: [ trunk ]
 #   schedule:
 #    - cron: '0 6 * * *'
 jobs:
@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --suite ${{secrets.suite_name}} || true
+    - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --testId ${{secrets.TESTID}} || true
 #     Affordable Board
     - uses: mikepenz/xray-action@v0.9.4
       with:
@@ -30,30 +30,30 @@ jobs:
         testFormat: "junit"
         testPaths: "~/junit.xml"
 #         testExecKey: “XRAY-14”
-        testPlanKey: "AH-215" 
+        testPlanKey: "XRAY-62" 
         continueOnImportError: false
-        projectKey: "AH"
-#     Financials Board
-    - uses: mikepenz/xray-action@v0.9.4
-      with:
-        username: ${{ secrets.client_id }}
-        password: ${{ secrets.client_secret }}
-        testFormat: "junit"
-        testPaths: "~/junit.xml"
-#         testExecKey: “XRAY-14”
-        testPlanKey: "FIN-174" 
-        continueOnImportError: false
-        projectKey: "FIN"
-#         Using this to avoid this action to run twice
-#     Platform Board
-    - uses: mikepenz/xray-action@v0.9.4
-      with:
-        username: ${{ secrets.client_id }}
-        password: ${{ secrets.client_secret }}
-        testFormat: "junit"
-        testPaths: "~/junit.xml"
-#         testExecKey: “XRAY-14”
-        testPlanKey: "PTB-829" 
-        continueOnImportError: false
-        projectKey: "PTB"
+        projectKey: "XRAY"
+# #     Financials Board
+#     - uses: mikepenz/xray-action@v0.9.4
+#       with:
+#         username: ${{ secrets.client_id }}
+#         password: ${{ secrets.client_secret }}
+#         testFormat: "junit"
+#         testPaths: "~/junit.xml"
+# #         testExecKey: “XRAY-14”
+#         testPlanKey: "FIN-174" 
+#         continueOnImportError: false
+#         projectKey: "FIN"
+# #         Using this to avoid this action to run twice
+# #     Platform Board
+#     - uses: mikepenz/xray-action@v0.9.4
+#       with:
+#         username: ${{ secrets.client_id }}
+#         password: ${{ secrets.client_secret }}
+#         testFormat: "junit"
+#         testPaths: "~/junit.xml"
+# #         testExecKey: “XRAY-14”
+#         testPlanKey: "PTB-829" 
+#         continueOnImportError: false
+#         projectKey: "PTB"
 
