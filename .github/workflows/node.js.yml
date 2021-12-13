@@ -3,8 +3,8 @@
 name: Node.js CI
 
 on:
-#   push:
-#     branches: [ main ]
+   push:
+     branches: [ main ]
 #   schedule:
 #    - cron: '0 5 * * *'
 jobs:
@@ -29,7 +29,7 @@ jobs:
         password: ${{ secrets.client_secret }}
         testFormat: "junit"
         testPaths: "~/junit.xml"
-#         testExecKey: “XRAY-14”
+        testExecKey: “XRAY-122”
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"
