@@ -37,7 +37,7 @@ jobs:
       uses: ./
       env:
         EXIT_CODE_FROM_REPORT: "True"
-        SLACK_CHANNEL: ${{ secrects.SLACK_QA_CHANNEL_ID }}
+        SLACK_CHANNEL: ${{ secrets.SLACK_QA_CHANNEL_ID }}
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         XUNIT_PATH: ./results.xml
 # #     Financials Board
