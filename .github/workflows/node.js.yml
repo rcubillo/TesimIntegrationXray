@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token ${{secrets.token}} --project ${{secrets.project}}  --grid ${{secrets.grid}} --reporters junit -r ~/junit.xml  --testId ${{secrets.TESTID}} || true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r ~/junit.xml  --testId "${{secrets.TESTID}}" || true
 #     Affordable Board
     - uses: mikepenz/xray-action@v0.9.4
       with:
@@ -29,7 +29,7 @@ jobs:
         password: ${{ secrets.client_secret }}
         testFormat: "junit"
         testPaths: "~/junit.xml"
-        testExecKey: "XRAY-122"
+#         testExecKey: "XRAY-122"
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"
@@ -37,8 +37,8 @@ jobs:
       uses: ./
       env:
         EXIT_CODE_FROM_REPORT: "True"
-        SLACK_CHANNEL: ${{ secrets.SLACK_QA_CHANNEL_ID }}
-        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
+        SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
         XUNIT_PATH: ./results.xml
 # #     Financials Board
 #     - uses: mikepenz/xray-action@v0.9.4
