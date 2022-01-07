@@ -18,13 +18,6 @@ jobs:
         cache: 'npm'
     - run: npm i -g @testim/testim-cli && testim --token "${{secrets.TESTIM_TOKEN}}" --project "${{secrets.PROJECT}}"  --grid "${{secrets.GRID}}" --reporters junit -r ~/junit.xml  --suite "${{secrets.TESTID}}" || true
 #     Affordable Board
-    - name: Testim-Results
-      uses: ./
-      env:
-        EXIT_CODE_FROM_REPORT: "True"
-        SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
-        SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
-        XUNIT_PATH: ./results.xml
     - uses: mikepenz/xray-action@v0.9.4
       with:
         username: ${{ secrets.CLIENT_ID }}
@@ -35,3 +28,10 @@ jobs:
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"
+    - name: Testim-Results
+      uses: ./
+      env:
+        EXIT_CODE_FROM_REPORT: "True"
+        SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
+        SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
+        XUNIT_PATH: ./results.xml
