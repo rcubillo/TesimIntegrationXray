@@ -1,12 +1,7 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions...
-name: Node.js CI
-
+name: Import of Testim test results into Jira
 on:
-   push:
-     branches: [ main ]
-#   schedule:
-#    - cron: '0 5 * * *'
+  push:
+    branches: [ main ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,18 +16,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r ~/junit.xml  --testId "${{secrets.TESTID}}" || true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.TESTIM_TOKEN}}" --project "${{secrets.TESTIM_PROJECT}}"  --grid "${{secrets.TESTIM_GRID}}" --reporters junit -r ~/junit.xml  --suite "${{secrets.TESTID}}" || true
 #     Affordable Board
-    - uses: mikepenz/xray-action@v0.9.4
-      with:
-        username: ${{ secrets.client_id }}
-        password: ${{ secrets.client_secret }}
-        testFormat: "junit"
-        testPaths: "~/junit.xml"
-#         testExecKey: "XRAY-122"
-        testPlanKey: "XRAY-62"
-        continueOnImportError: false
-        projectKey: "XRAY"
     - name: Testim-Results
       uses: ./
       env:
@@ -40,27 +25,13 @@ jobs:
         SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
         SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
         XUNIT_PATH: ./results.xml
-# #     Financials Board
-#     - uses: mikepenz/xray-action@v0.9.4
-#       with:
-#         username: ${{ secrets.client_id }}
-#         password: ${{ secrets.client_secret }}
-#         testFormat: "junit"
-#         testPaths: "~/junit.xml"
-# #         testExecKey: “XRAY-14”
-#         testPlanKey: "FIN-174"
-#         continueOnImportError: false
-#         projectKey: "FIN"
-# #         Using this to avoid this action to run twice
-# #     Platform Board
-#     - uses: mikepenz/xray-action@v0.9.4
-#       with:
-#         username: ${{ secrets.client_id }}
-#         password: ${{ secrets.client_secret }}
-#         testFormat: "junit"
-#         testPaths: "~/junit.xml"
-# #         testExecKey: “XRAY-14”
-#         testPlanKey: "PTB-829"
-#         continueOnImportError: false
-#         projectKey: "PTB"
-
+    - uses: mikepenz/xray-action@v0.9.4
+      with:
+        username: ${{ secrets.TESTIM_CLIENT_ID }}
+        password: ${{ secrets.TESTIM_CLIENT_SECRET }}
+        testFormat: "junit"
+        testPaths: "~/junit.xml"
+        testExecKey: "AH-242"
+        testPlanKey: "AH-215"
+        continueOnImportError: false
+        projectKey: "AH"
