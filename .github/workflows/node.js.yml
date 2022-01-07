@@ -34,13 +34,13 @@ jobs:
         EXIT_CODE_FROM_REPORT: "True"
         SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
         SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
-        XUNIT_PATH: /home/runner/junit.xml
+        XUNIT_PATH: "/home/runner/junit.xml"
     # Publish Unit Test Results
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
       if: always()
       with:
-       files: /home/runner/junit.xml
+       files: "~/junit.xml"
 #        Artifacts
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
