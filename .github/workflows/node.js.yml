@@ -33,6 +33,13 @@ jobs:
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"
+    - name: Testim-Results
+      uses: ./
+      env:
+        EXIT_CODE_FROM_REPORT: "True"
+        SLACK_CHANNEL: ${{ secrects.SLACK_QA_CHANNEL_ID }}
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        XUNIT_PATH: ./results.xml
 # #     Financials Board
 #     - uses: mikepenz/xray-action@v0.9.4
 #       with:
