@@ -41,3 +41,10 @@ jobs:
       if: always()
       with:
        files: /home/runner/junit.xml
+#        Artifacts
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+       name: testimResults
+       path: "~/junit.xml"
+       retention-days: 1
