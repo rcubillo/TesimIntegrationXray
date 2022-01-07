@@ -16,7 +16,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.TESTIM_TOKEN}}" --project "${{secrets.TESTIM_PROJECT}}"  --grid "${{secrets.TESTIM_GRID}}" --reporters junit -r ~/junit.xml  --suite "${{secrets.TESTID}}" || true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.TESTIM_TOKEN}}" --project "${{secrets.PROJECT}}"  --grid "${{secrets.GRID}}" --reporters junit -r ~/junit.xml  --suite "${{secrets.TESTID}}" || true
 #     Affordable Board
     - name: Testim-Results
       uses: ./
@@ -27,11 +27,11 @@ jobs:
         XUNIT_PATH: ./results.xml
     - uses: mikepenz/xray-action@v0.9.4
       with:
-        username: ${{ secrets.TESTIM_CLIENT_ID }}
-        password: ${{ secrets.TESTIM_CLIENT_SECRET }}
+        username: ${{ secrets.CLIENT_ID }}
+        password: ${{ secrets.CLIENT_SECRET }}
         testFormat: "junit"
         testPaths: "~/junit.xml"
-        testExecKey: "AH-242"
-        testPlanKey: "AH-215"
+#         testExecKey: "AH-242"
+        testPlanKey: "XRAY-62"
         continueOnImportError: false
-        projectKey: "AH"
+        projectKey: "XRAY"
