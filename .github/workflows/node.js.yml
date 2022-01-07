@@ -29,7 +29,6 @@ jobs:
         continueOnImportError: false
         projectKey: "XRAY"
     - name: Testim-Results
-      uses: ./
       env:
         EXIT_CODE_FROM_REPORT: "True"
         SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
