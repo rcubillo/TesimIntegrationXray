@@ -28,13 +28,13 @@ jobs:
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"
-#     - name: Testim-Results
-#       uses: ivanklee86/xunit-slack-reporter@v1.0.1
-#       env:
-#         EXIT_CODE_FROM_REPORT: "True"
-#         SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
-#         SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
-#         XUNIT_PATH: "~/junit.xml"
+    - name: Testim-Results
+      uses: ivanklee86/xunit-slack-reporter@v1.0.1
+      env:
+        EXIT_CODE_FROM_REPORT: "True"
+        SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
+        SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
+        XUNIT_PATH: "~/junit.xml"
     # Publish Unit Test Results
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
