@@ -24,7 +24,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+    - run: |
+          cat ~/junit.xml
     - name: Testim-Results
       uses: ivanklee86/xunit-slack-reporter@v1.3.0
       env:
