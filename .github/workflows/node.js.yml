@@ -40,7 +40,7 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
       if: always()
       with:
-       files: junit.xml
+       files: /home/runner/junit.xml
 #        Artifacts
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v2
