@@ -1,4 +1,4 @@
-cname: Import of Testim test results into Jira
+name: Import of Testim test results into Jira
 on:
   push:
     branches: [ main ]
