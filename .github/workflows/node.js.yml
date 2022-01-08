@@ -34,17 +34,17 @@ jobs:
         EXIT_CODE_FROM_REPORT: "True"
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_TOKEN}}"
-        XUNIT_PATH: /home/runner/junit.xml
-    # Publish Unit Test Results
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
-      if: always()
-      with:
-       files: /home/runner/junit.xml
-#        Artifacts
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
-      with:
-       name: testimResults
-       path: "~/junit.xml"
-       retention-days: 1
+        XUNIT_GLOB: ~/junit.xml
+#     # Publish Unit Test Results
+#     - name: Publish Unit Test Results
+#       uses: EnricoMi/publish-unit-test-result-action/composite@v1
+#       if: always()
+#       with:
+#        files: /home/runner/junit.xml
+# #        Artifacts
+#     - name: 'Upload Artifact'
+#       uses: actions/upload-artifact@v2
+#       with:
+#        name: testimResults
+#        path: "~/junit.xml"
+#        retention-days: 1
