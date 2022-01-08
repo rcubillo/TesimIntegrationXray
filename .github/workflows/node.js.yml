@@ -37,11 +37,11 @@ jobs:
         SLACK_TOKEN: "${{secrets.SLACK_TOKEN}}"
         XUNIT_GLOB: ~/junit.xml
 #     # Publish Unit Test Results
-#     - name: Publish Unit Test Results
-#       uses: EnricoMi/publish-unit-test-result-action/composite@v1
-#       if: always()
-#       with:
-#        files: /home/runner/junit.xml
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      if: always()
+      with:
+       files: /home/runner/junit.xml
 # #        Artifacts
 #     - name: 'Upload Artifact'
 #       uses: actions/upload-artifact@v2
