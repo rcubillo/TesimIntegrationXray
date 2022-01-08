@@ -1,4 +1,4 @@
-name: Import of Testim test results into Jira
+cname: Import of Testim test results into Jira
 on:
   push:
     branches: [ main ]
@@ -35,7 +35,7 @@ jobs:
 #         ONLY_NOTIFY_ON_ISSUES : "true"
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_TOKEN}}"
-        XUNIT_GLOB: ~/junit.xml
+        XUNIT_GLOB: /home/runner/junit.xml
 #     # Publish Unit Test Results
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
