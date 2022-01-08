@@ -32,8 +32,8 @@ jobs:
       uses: ivanklee86/xunit-slack-reporter@v1.3.0
       env:
         EXIT_CODE_FROM_REPORT: "True"
-        SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID }}"
-        SLACK_TOKEN: "${{ secrets.SLACK_TOKEN }}"
+        SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+        SLACK_TOKEN: "${{secrets.SLACK_TOKEN}}"
         XUNIT_PATH: /home/runner/junit.xml
     # Publish Unit Test Results
     - name: Publish Unit Test Results
