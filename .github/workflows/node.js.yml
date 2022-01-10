@@ -28,21 +28,21 @@ jobs:
 #         testPlanKey: "XRAY-62"
 #         continueOnImportError: false
 #         projectKey: "XRAY"
-#     - name: Testim-Results
-#       uses: ivanklee86/xunit-slack-reporter@v1.3.0
-#       env:
-# #         EXIT_CODE_FROM_REPORT: "True"
-#         ONLY_NOTIFY_ON_ISSUES : "true"
-#         SLACK_CHANNEL: "${{ secrets.SLACK_QA_CHANNEL_ID}}"
-#         SLACK_TOKEN: "${{secrets.SLACK_TOKEN}}"
-#         XUNIT_GLOB: "**/*.xml"
     - name: Testim-Results
+      uses: ivanklee86/xunit-slack-reporter@v1.3.0
       env:
-        SLACK_BOT_TOKEN: "${{secrets.SLACK_TOKEN}}"
-      uses: pullreminders/slack-action@master
-      with:
-        args: '{\"channel\":\"CPVBET0F5\",\"text\":\"Test results\"}'
-        path: "~/junit.xml"
+#         EXIT_CODE_FROM_REPORT: "True"
+        ONLY_NOTIFY_ON_ISSUES : "true"
+        SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+        SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+        XUNIT_GLOB: "**/*.xml"
+#     - name: Testim-Results
+#       env:
+#         SLACK_BOT_TOKEN: "${{secrets.SLACK_TOKEN}}"
+#       uses: pullreminders/slack-action@master
+#       with:
+#         args: '{\"channel\":\"CPVBET0F5\",\"text\":\"Test results\"}'
+#         path: "~/junit.xml"
 #     # Publish Unit Test Results
 #     - name: Publish Unit Test Results
 #       uses: EnricoMi/publish-unit-test-result-action/composite@v1
