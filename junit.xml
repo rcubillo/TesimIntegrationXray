@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<testsuites>
-  <testsuite name="selenium run" tests="1" failure="0" timestamp="2022-01-07T16:32:16.339Z" skipped="0" failure-evaluating="0">
-    <testcase name="Test_Perform_Successful Login_HP - 1 / 1 Data set" classname="testim.io.test" time="12.204" ownedBy="Fernando Zuniga" ownerEmail="fzuniga@fortresstech.net">
-      <system-out>https://app.testim.io/#/project/rMDuwZcHfy1l6jUu7cXo/branch/master/test/5PInRHYsdE54JBu3?result-id=eEBshftRaHGKk3Z0</system-out>
-    </testcase>
-  </testsuite>
-</testsuites>
