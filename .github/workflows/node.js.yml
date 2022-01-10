@@ -41,7 +41,8 @@ jobs:
         SLACK_BOT_TOKEN: "${{secrets.SLACK_TOKEN}}"
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CPVBET0F5\",\"text\":\"Test results from Testim\"}' 
+        args: '{\"channel\":\"CPVBET0F5\",\"text\":\"Test results from Testim\"}'
+        files: /home/runner/junit.xml
 #     # Publish Unit Test Results
 #     - name: Publish Unit Test Results
 #       uses: EnricoMi/publish-unit-test-result-action/composite@v1
