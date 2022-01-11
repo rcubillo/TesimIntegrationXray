@@ -35,7 +35,7 @@ jobs:
 #         ONLY_NOTIFY_ON_ISSUES : "true"
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_PATH: ~/junit.xml
+        XUNIT_PATH: **/*.xml
 #     - name: Testim-Results
 #       env:
 #         SLACK_BOT_TOKEN: "${{secrets.SLACK_TOKEN}}"
