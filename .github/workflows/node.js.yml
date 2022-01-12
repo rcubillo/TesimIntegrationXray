@@ -24,7 +24,7 @@ jobs:
 #         password: ${{ secrets.CLIENT_SECRET }}
 #         testFormat: "junit"
 #         testPaths: "~/junit.xml"
-# #         testExecKey: "AH-242"
+# #         testExecKey: "XRAY-158"
 #         testPlanKey: "XRAY-62"
 #         continueOnImportError: false
 #         projectKey: "XRAY"
