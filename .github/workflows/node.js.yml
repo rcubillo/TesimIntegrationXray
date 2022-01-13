@@ -62,3 +62,7 @@ jobs:
 #         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
 #         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
 #         XUNIT_GLOB: "**/*.xml"
+    - task: DownloadPipelineArtifact@2
+       inputs:
+       artifact: 'WebApp'
+       path: $(Build.SourcesDirectory)/bin
