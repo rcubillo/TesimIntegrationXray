@@ -61,4 +61,4 @@ jobs:
       env:
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_PATH: "**/*.xml"
+        XUNIT_GLOB: "**/*.xml"
