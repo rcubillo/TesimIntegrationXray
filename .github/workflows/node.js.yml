@@ -56,9 +56,25 @@ jobs:
        name: testimResults
        path: "~/junit.xml"
        retention-days: 1
-    - name: Testim-Results
-      uses: ivanklee86/xunit-slack-reporter@v1.4.0
-      env:
-        SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
-        SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_GLOB: "**/*.xml"
+#     - name: Testim-Results
+#       uses: ivanklee86/xunit-slack-reporter@v1.4.0
+#       env:
+#         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+#         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+#         XUNIT_GLOB: "**/*.xml"
+
+  test_ko:
+    runs-on: ubuntu-latest
+    name: Test the action on failure
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Failure
+        run: exit 1
+      - name: Action
+        uses: ./
+        if: always()
+        with:
+            job-status: ${{ job.status }}
+            slack-bot-token: "${{secrets.SLACK_BOT_TOKEN}}"
+            channel: "${{secrets.SLACK_QA_CHANNEL_ID}}"
