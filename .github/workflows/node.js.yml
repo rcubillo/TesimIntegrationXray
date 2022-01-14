@@ -61,11 +61,11 @@ jobs:
 #         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
 #         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
 #         XUNIT_GLOB: "**/*.xml"
-#     - name: 'Download Artifact'
-#       uses: actions/download-artifact@v2
-#       with:
-#        name: testimResults
-#        path: ../workflows
+    - name: 'Download Artifact'
+      uses: actions/download-artifact@v2
+      with:
+       name: testimResults
+       path: ../workflows
 
     - uses: MeilCli/slack-upload-file@v1
       id: message
