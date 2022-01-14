@@ -67,3 +67,13 @@ jobs:
 #        name: testimResults
 #        path: ../workflows
 
+    - uses: MeilCli/slack-upload-file@v1
+      id: message
+      with:
+          slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
+          channels: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+          file_path: '/home/runner/junit.xml'
+          file_name: 'junit.xml'
+          file_type: 'xml'
+          initial_comment: 'post by slack-upload-file'
+
