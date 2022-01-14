@@ -36,12 +36,12 @@ jobs:
 #         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
 #         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
 #         XUNIT_PATH: **/*.xml
-    - name: Testim-Results
-      env:
-        SLACK_BOT_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-      uses: pullreminders/slack-action@master
-      with:
-        args: '{\"channel\":\"C02TFU4Q4H2\",\"text\":\"TEST\"}'
+#     - name: Testim-Results
+#       env:
+#         SLACK_BOT_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+#       uses: pullreminders/slack-action@master
+#       with:
+#         args: '{\"channel\":\"C02TFU4Q4H2\",\"text\":\"TEST\"}'
 #     # Publish Unit Test Results
 #     - name: Publish Unit Test Results
 #       uses: EnricoMi/publish-unit-test-result-action/composite@v1
@@ -72,8 +72,8 @@ jobs:
       with:
           slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
           channels: "${{secrets.SLACK_QA_CHANNEL_ID}}"
-          file_path: "/home/runner/junit.xml"
-          file_name: 'junit'
-          file_type: 'xml'
+          file_path: "/home/runner/work/TesimIntegrationXray/workflows"
+          file_name: 'testimResults'
+#           file_type: 'xml'
           initial_comment: 'post by slack-upload-file'
 
