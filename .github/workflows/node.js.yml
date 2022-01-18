@@ -67,7 +67,7 @@ jobs:
 #        name: testimResults
 #        path: ../workflows
 
-    - uses: MeilCli/slack-upload-file@v1
+    - uses: MeilCli/slack-upload-file@v1.4.11
       id: message
       with:
           slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
