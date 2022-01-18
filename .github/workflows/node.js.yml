@@ -28,14 +28,22 @@ jobs:
 #         testPlanKey: "XRAY-62"
 #         continueOnImportError: false
 #         projectKey: "XRAY"
-    - name: Testim-Results
-      uses: ivanklee86/xunit-slack-reporter@v1.4.0
+
+    - name: notify-tests
+      uses: ivanklee86/xunit-slack-reporter@v1.3.0
       env:
-#         EXIT_CODE_FROM_REPORT: "True"
-#         ONLY_NOTIFY_ON_ISSUES : "true"
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_GLOB: "~/junit.xml"
+        XUNIT_PATH: ~/junit.xml
+        
+#     - name: Testim-Results
+#       uses: ivanklee86/xunit-slack-reporter@v1.4.0
+#       env:
+#         EXIT_CODE_FROM_REPORT: "True"
+#         ONLY_NOTIFY_ON_ISSUES : "true"
+#         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+#         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+#         XUNIT_GLOB: "~/junit.xml"
 #     - name: Testim-Results
 #       env:
 #         SLACK_BOT_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
