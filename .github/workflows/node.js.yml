@@ -73,7 +73,7 @@ jobs:
           slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
           channels: "${{secrets.SLACK_QA_CHANNEL_ID}}"
           file_path: "/home/runner"
-          file_name: 'junit.xml'
+          file_name: "~/junit.xml"
           file_type: 'xml'
           initial_comment: 'post by slack-upload-file'
 
