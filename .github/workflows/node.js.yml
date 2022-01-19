@@ -29,12 +29,12 @@ jobs:
 #         continueOnImportError: false
 #         projectKey: "XRAY"
 
-    - name: notify-tests
-      uses: ivanklee86/xunit-slack-reporter@v1.3.0
-      env:
-        SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
-        SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_PATH: ~/junit.xml
+#     - name: notify-tests
+#       uses: ivanklee86/xunit-slack-reporter@v1.3.0
+#       env:
+#         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+#         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+#         XUNIT_PATH: ~/junit.xml
         
 #     - name: Testim-Results
 #       uses: ivanklee86/xunit-slack-reporter@v1.4.0
@@ -75,13 +75,13 @@ jobs:
 #        name: testimResults
 #        path: ../workflows
 
-#     - uses: MeilCli/slack-upload-file@v1.4.11
-#       id: message
-#       with:
-#           slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
-#           channels: "${{secrets.SLACK_QA_CHANNEL_ID}}"
-#           file_path: "/home/runner"
-#           file_name: "junit"
-#           file_type: 'xml'
-#           initial_comment: 'post by slack-upload-file'
+    - uses: MeilCli/slack-upload-file@v1.4.11
+      id: message
+      with:
+          slack_token: "${{secrets.SLACK_BOT_TOKEN}}"
+          channels: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+          file_path: "/home/runner/junit.xml"
+          file_name: "junit"
+          file_type: 'xml'
+          initial_comment: 'post by slack-upload-file'
 
