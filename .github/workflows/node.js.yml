@@ -29,7 +29,7 @@ jobs:
 #         continueOnImportError: false
 #         projectKey: "XRAY"   
     - name: Testim-Results
-      uses: ivanklee86/xunit-slack-reporter@v1.4.0
+      uses: ivanklee86/xunit-slack-reporter@v1.3.0
       env:
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
