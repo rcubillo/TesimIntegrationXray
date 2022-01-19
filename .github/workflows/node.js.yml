@@ -33,7 +33,7 @@ jobs:
       env:
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_GLOB: "/home/runner/junit.xml"
+        XUNIT_PATH: "/home/runner/junit.xml"
 #     - name: Testim-Results
 #       env:
 #         SLACK_BOT_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
