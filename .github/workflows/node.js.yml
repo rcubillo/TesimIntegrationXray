@@ -16,14 +16,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r /home/runner/work/_temp/_github_home/junit.xml  --testId "${{secrets.TESTID}}" || true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml  --testId "${{secrets.TESTID}}" || true
 #     Affordable Board
     - uses: mikepenz/xray-action@v2.3.0
       with:
         username: ${{ secrets.CLIENT_ID }}
         password: ${{ secrets.CLIENT_SECRET }}
         testFormat: "junit"
-        testPaths: "/home/runner/work/_temp/_github_home/junit.xml"
+        testPaths: "home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml"
         testExecKey: "XRAY-158"
         testPlanKey: "XRAY-62"
         continueOnImportError: false
