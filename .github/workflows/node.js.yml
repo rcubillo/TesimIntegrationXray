@@ -28,12 +28,12 @@ jobs:
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"   
-    - name: Testim-Results
-      uses: ivanklee86/xunit-slack-reporter@v1.4.0
-      env:
-        SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
-        SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-        XUNIT_GLOB: '**/*junit.xml'
+#     - name: Testim-Results
+#       uses: ivanklee86/xunit-slack-reporter@v1.4.0
+#       env:
+#         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
+#         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
+#         XUNIT_GLOB: '**/*junit.xml'
 #         ONLY_NOTIFY_ON_ISSUES: "True"
 #     - name: Testim-Results
 #       env:
@@ -42,11 +42,11 @@ jobs:
 #       with:
 #         args: '{\"channel\":\"C02TFU4Q4H2\",\"text\":\"TEST\"}'
 #     # Publish Unit Test Results
-    - name: Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
-      if: always()
-      with:
-       files: /home/runner/junit.xml
+#     - name: Test Results
+#       uses: EnricoMi/publish-unit-test-result-action/composite@v1
+#       if: always()
+#       with:
+#        files: /home/runner/junit.xml
 # #        Artifacts
 #     - name: 'Upload Artifact'
 #       uses: actions/upload-artifact@v2
@@ -65,4 +65,16 @@ jobs:
 #           file_name: "junit"
 #           file_type: 'xml'
 #           initial_comment: 'post by slack-upload-file'
+
+    - name: Get XML
+      id: getxml
+      uses: mavrosxristoforos/get-xml-info@1.0
+      with:
+        xml-file: '/home/runner/junit.xml'
+        xpath: '//version'
+    - name: Create Release
+      uses: some-random/release-action@v1
+      with:
+        artifacts: 'another-file.zip'
+        tag: ${{ steps.getxml.outputs.info }}
 
