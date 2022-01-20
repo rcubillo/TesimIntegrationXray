@@ -23,7 +23,7 @@ jobs:
         username: ${{ secrets.CLIENT_ID }}
         password: ${{ secrets.CLIENT_SECRET }}
         testFormat: "junit"
-        testPaths: "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/juni.xml"
+        testPaths: "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml"
         testExecKey: "XRAY-158"
         testPlanKey: "XRAY-62"
         continueOnImportError: false
@@ -41,12 +41,12 @@ jobs:
 #       uses: pullreminders/slack-action@master
 #       with:
 #         args: '{\"channel\":\"C02TFU4Q4H2\",\"text\":\"TEST\"}'
-#     # Publish Unit Test Results
-#     - name: Test Results
-#       uses: EnricoMi/publish-unit-test-result-action/composite@v1
-#       if: always()
-#       with:
-#        files: /home/runner/junit.xml
+    # Publish Unit Test Results
+    - name: Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      if: always()
+      with:
+       files: /home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml
 # #        Artifacts
 #     - name: 'Upload Artifact'
 #       uses: actions/upload-artifact@v2
