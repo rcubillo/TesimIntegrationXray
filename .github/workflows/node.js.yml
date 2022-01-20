@@ -16,14 +16,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r /home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml  --suite "${{secrets.SUITE_NAME}}"|| true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}  --suite "${{secrets.SUITE_NAME}}"|| true
 #     Affordable Board
     - uses: mikepenz/xray-action@v2.3.0
       with:
         username: ${{ secrets.CLIENT_ID }}
         password: ${{ secrets.CLIENT_SECRET }}
         testFormat: "junit"
-        testPaths: "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml"
+        testPaths: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
         testExecKey: "XRAY-158"
         testPlanKey: "XRAY-62"
         continueOnImportError: false
@@ -46,7 +46,7 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
       if: always()
       with:
-       files: /home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml
+       files: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
 # #        Artifacts
 #     - name: 'Upload Artifact'
 #       uses: actions/upload-artifact@v2
