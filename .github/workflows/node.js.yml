@@ -23,7 +23,7 @@ jobs:
         username: ${{ secrets.CLIENT_ID }}
         password: ${{ secrets.CLIENT_SECRET }}
         testFormat: "junit"
-        testPaths: "~/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/juni.xml"
+        testPaths: "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/juni.xml"
         testExecKey: "XRAY-158"
         testPlanKey: "XRAY-62"
         continueOnImportError: false
