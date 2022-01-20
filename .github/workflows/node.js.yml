@@ -28,7 +28,7 @@ jobs:
         testPlanKey: "XRAY-62"
         continueOnImportError: false
         projectKey: "XRAY"   
-    - name: Testim-Results
+    - name: Test results
       uses: ivanklee86/xunit-slack-reporter@v1.4.0
       env:
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
