@@ -16,20 +16,20 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --testId "${{secrets.TESTID}}"|| true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --suite "${{secrets.SUITE_NAME}}" --override-report-file-classname "Regression" --turbo-mode|| true
 #     Affordable Board
-    - uses: mikepenz/xray-action@v2.3.0
-      with:
-        username: ${{ secrets.CLIENT_ID }}
-        password: ${{ secrets.CLIENT_SECRET }}
-        testFormat: "junit"
-        testPaths: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
-        testExecKey: "XRAY-158"
-        testPlanKey: "XRAY-62"
-        continueOnImportError: false
-        projectKey: "XRAY"   
+#     - uses: mikepenz/xray-action@v2.3.0
+#       with:
+#         username: ${{ secrets.CLIENT_ID }}
+#         password: ${{ secrets.CLIENT_SECRET }}
+#         testFormat: "junit"
+#         testPaths: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
+#         testExecKey: "XRAY-158"
+#         testPlanKey: "XRAY-62"
+#         continueOnImportError: false
+#         projectKey: "XRAY"   
     - name: Test results
-      uses: rcubillo/xunit-slack-reporter@v1.4.0
+      uses: ivanklee86/xunit-slack-reporter@v1.4.0
       env:
         SLACK_CHANNEL: "${{secrets.SLACK_QA_CHANNEL_ID}}"
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
@@ -47,13 +47,13 @@ jobs:
       if: always()
       with:
        files: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
-# #        Artifacts
-#     - name: 'Upload Artifact'
-#       uses: actions/upload-artifact@v2
-#       with:
-#        name: testimResults
-#        path: "~/junit.xml"
-#        retention-days: 1
+#        Artifacts
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+       name: testimResults
+       path: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}" 
+       retention-days: 1
 
 #     This is working but it's importing the whole xml to slack. 
 #     - uses: MeilCli/slack-upload-file@v1.4.11
