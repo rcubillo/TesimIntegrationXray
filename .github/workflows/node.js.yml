@@ -1,7 +1,8 @@
 name: Import of Testim test results into Jira
 on:
-  push:
-    branches: [ main ]
+   schedule:
+   - cron: '0 9 * * *'
+   - cron: '0 22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +17,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --suite "${{secrets.SUITE_NAME}}" --override-report-file-classname "Regression" --turbo-mode|| true
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --testId "${{secrets.TESTID}}" --override-report-file-classname "Regression" --turbo-mode|| true
 #     Affordable Board
 #     - uses: mikepenz/xray-action@v2.3.0
 #       with:
