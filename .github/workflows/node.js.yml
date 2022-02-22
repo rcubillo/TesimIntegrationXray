@@ -1,8 +1,8 @@
 name: Import of Testim test results into Jira.
 on:
    schedule:
-   - cron: '0 9 * * *'
-   - cron: '0 22 * * *'
+#    - cron: '0 9 * * *'
+#    - cron: '0 22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
