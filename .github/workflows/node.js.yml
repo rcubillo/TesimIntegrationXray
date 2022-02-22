@@ -1,4 +1,4 @@
-name: Import of Testim test results into Jira
+name: Import of Testim test results into Jira.
 on:
    schedule:
    - cron: '0 9 * * *'
@@ -49,12 +49,12 @@ jobs:
       with:
        files: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
 #        Artifacts
-    - name: 'Upload Artifact'
-      uses: actions/upload-artifact@v2
-      with:
-       name: testimResults
-       path: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}" 
-       retention-days: 1
+#     - name: 'Upload Artifact'
+#       uses: actions/upload-artifact@v2
+#       with:
+#        name: testimResults
+#        path: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}" 
+#        retention-days: 1
 
 #     This is working but it's importing the whole xml to slack. 
 #     - uses: MeilCli/slack-upload-file@v1.4.11
