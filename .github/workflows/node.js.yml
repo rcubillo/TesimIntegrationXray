@@ -20,8 +20,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --testId "${{secrets.TESTID}}" --override-report-file-classname "Regression"
 #     - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --testId "${{secrets.TESTID}}" --override-report-file-classname "Regression"
-    - run: npm i -g @testim/testim-cli && testim --token "BA1tIwCCRd2PxK41jFkGgVtBGVusbcvLc88p9c0Lcej3hgjXv5" --project "okKo42lPOUW4hhibLyAt" --grid "Testim-Grid" --reporters junit -r "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml" --suite "Regression"
+#     - run: npm i -g @testim/testim-cli && testim --token "BA1tIwCCRd2PxK41jFkGgVtBGVusbcvLc88p9c0Lcej3hgjXv5" --project "okKo42lPOUW4hhibLyAt" --grid "Testim-Grid" --reporters junit -r "/home/runner/work/TesimIntegrationXray/TesimIntegrationXray/junit.xml" --suite "Regression"
 #     Affordable Board
     - uses: mikepenz/xray-action@v2.3.0
       with:
