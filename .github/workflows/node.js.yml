@@ -23,16 +23,16 @@ jobs:
 #     - run: npm i -g @testim/testim-cli && testim --token "${{secrets.token}}" --project "${{secrets.project}}"  --grid "${{secrets.grid}}" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"  --testId "${{secrets.TESTID}}" --override-report-file-classname "Regression"
     - run: npm i -g @testim/testim-cli && testim --token "BA1tIwCCRd2PxK41jFkGgVtBGVusbcvLc88p9c0Lcej3hgjXv5" --project "okKo42lPOUW4hhibLyAt" --grid "Testim-Grid" --reporters junit -r "${{secrets.TESTIM__JUNIT_REPORT_PATH }}" --suite "Regression"
 #     Affordable Board
-#     - uses: mikepenz/xray-action@v2.3.0
-#       with:
-#         username: ${{ secrets.CLIENT_ID }}
-#         password: ${{ secrets.CLIENT_SECRET }}
-#         testFormat: "junit"
-#         testPaths: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
-#         testExecKey: "XRAY-158"
-#         testPlanKey: "XRAY-62"
-#         continueOnImportError: false
-#         projectKey: "XRAY"   
+    - uses: mikepenz/xray-action@v2.3.0
+      with:
+        username: ${{ secrets.CLIENT_ID }}
+        password: ${{ secrets.CLIENT_SECRET }}
+        testFormat: "junit"
+        testPaths: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
+        testExecKey: "XRAY-158"
+        testPlanKey: "XRAY-62"
+        continueOnImportError: false
+        projectKey: "XRAY"   
     - name: Test results
       uses: ivanklee86/xunit-slack-reporter@v1.4.0
       env:
