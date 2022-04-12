@@ -41,11 +41,11 @@ jobs:
         XUNIT_GLOB: '**/*junit.xml'
         ONLY_NOTIFY_ON_ISSUES: "False"
     # Publish Unit Test Results
-    - name: Test Resultss
-      uses: EnricoMi/publish-unit-test-result-action/composite@v1
-      if: always()
-      with:
-       files: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
+#     - name: Test Resultss
+#       uses: EnricoMi/publish-unit-test-result-action/composite@v1
+#       if: always()
+#       with:
+#        files: "${{secrets.TESTIM__JUNIT_REPORT_PATH }}"
 #        Artifacts
 #     - name: 'Upload Artifact'
 #       uses: actions/upload-artifact@v2
