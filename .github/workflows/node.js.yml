@@ -64,7 +64,7 @@ jobs:
 #           file_path: "/home/runner/junit.xml"
 #           file_name: "junit"
 #           file_type: 'xml'
-#           initial_comment: 'post by slack-upload-file'
+#           initial_comment: 'post by slack-upload-file'.
 
 
 
