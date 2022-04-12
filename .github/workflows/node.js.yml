@@ -37,12 +37,6 @@ jobs:
         SLACK_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
         XUNIT_GLOB: '**/*junit.xml'
         ONLY_NOTIFY_ON_ISSUES: "False"
-#     - name: Testim-Results
-#       env:
-#         SLACK_BOT_TOKEN: "${{secrets.SLACK_BOT_TOKEN}}"
-#       uses: pullreminders/slack-action@master
-#       with:
-#         args: '{\"channel\":\"C02TFU4Q4H2\",\"text\":\"TEST\"}'
     # Publish Unit Test Results
     - name: Test Resultss
       uses: EnricoMi/publish-unit-test-result-action/composite@v1
