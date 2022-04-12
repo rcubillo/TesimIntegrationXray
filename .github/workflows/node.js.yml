@@ -2,7 +2,7 @@ name: Import of Testim test results into Jira.
 on:
   push:
     branches:
-      - master
+      - main
 #    schedule:
 #     - cron: '0 9 * * *'
 #     - cron: '0 22 * * *'
